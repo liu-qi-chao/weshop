@@ -54,7 +54,7 @@ export default {
     flex-direction column
     font-size 24px
     &.active
-      color red
+      color $red
     .iconfont
       font-size 42px
       line-height 60px
