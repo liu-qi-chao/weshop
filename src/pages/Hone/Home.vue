@@ -27,8 +27,11 @@
     <!-- 轮播图 -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="../../common/images/swiper/01.webp" alt="">
+          <div class="swiper-slide" v-for="(item, index) in this.IndexList.focusList" :key="index">
+            <img :src=item.picUrl alt="">
+          </div>
+          <!-- <div class="swiper-slide">
+            <img src="../../common/images/swiper/2.webp" alt="">
           </div>
           <div class="swiper-slide">
             <img src="../../common/images/swiper/2.webp" alt="">
@@ -47,7 +50,7 @@
           </div>
           <div class="swiper-slide">
             <img src="../../common/images/swiper/7.webp" alt="">
-          </div>
+          </div> -->
         </div> 
         <div class="swiper-pagination">
           <span class="swiper-pagination-bullet"></span>
@@ -55,6 +58,10 @@
       </div>
       <!-- 列表 -->
       <div class="bList">
+            <!-- <div >
+              <i class="iconfont icon-wangyi"></i>
+              <span>网易自营品牌</span>
+            </div> -->
             <div>
               <i class="iconfont icon-wangyi"></i>
               <span>网易自营品牌</span>
@@ -117,6 +124,24 @@
           </ul>
         </div>
       </div>
+      <!-- 蓝块 -->
+      <div class="blueBox">
+        <img class="img1" src="" alt="">
+        <img class="img2" src="" alt="">
+        <div class="inTwo">
+          <div class="inTwo1">
+            <img src="" alt="">
+          </div>
+          <div class="inTwo2">
+            <img src="" alt="">
+            <img class="sos" src="" alt="">
+          </div>
+          <div class="inTwo3">
+            <img src="" alt="">
+            <img class="sos" src="" alt="">
+          </div>
+        </div>
+      </div>
   </div>
   
 </template>
@@ -125,11 +150,27 @@
 import BScorll from 'better-scroll'
 import Swiper from "swiper";
 import "swiper/css/swiper.min.css";
+
+import {mapState} from 'vuex'
   export default {
-    mounted() {
+    data() {
+      return {
+        // IndexList:{}
+      }
+    },
+    async mounted() {
       new BScorll('.listContainer',{
             scrollX:true
          })
+          // new Swiper(".swiper-container", {
+          //   autoplay: true,//自动轮播
+          //   pagination: {
+          //     el: ".swiper-pagination"
+          //   },
+          //   loop: true
+          // });
+      this.$store.dispatch('getIndexLists',() => {
+        this.$nextTick(() => {
           new Swiper(".swiper-container", {
             autoplay: true,//自动轮播
             pagination: {
@@ -137,8 +178,17 @@ import "swiper/css/swiper.min.css";
             },
             loop: true
           });
-          
+        });
+      })    
+      
+      
     },
+    computed: {
+      ...mapState({
+        IndexList: state => state.IndexList
+      })
+    },
+    
   }
 </script>
 
