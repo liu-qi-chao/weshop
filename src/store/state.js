@@ -1,3 +1,4 @@
 export default {
-    IndexList:{}
+    IndexList:{}, //首页数据
+
 }
