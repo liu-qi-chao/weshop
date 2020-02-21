@@ -11,15 +11,7 @@
     <div class="listContainer">
       <ul class="navList" v-if="IndexList">
         <li v-for="(item, index) in IndexList.kingKongModule.kingKongList" :key="index">{{item.text}}</li>
-        <!-- <li>推荐</li>
-        <li>居家生活</li>
-        <li>服饰鞋包</li>
-        <li>美食酒水</li>
-        <li>个护清洁</li>
-        <li>母婴亲子</li>
-        <li>运动旅行</li>
-        <li>数码家电</li>
-        <li>全球特色</li> -->
+
       </ul>
       <div class="btn">
         <i class="iconfont icon-Icon_ArrowDown"></i>
@@ -56,32 +48,24 @@
       </div>
     </div>
     <!-- 蓝块 -->
-    <div class="zaijiaContainer">
-      <div class="zaijiaTop" >
-        <img src="../../common/images/swiper/8.png" alt />
-      </div>
-      <div class="zaijiaBottom">
-        <div class="fangyi">
-          <img src="../../common/images/swiper/8.png" alt />
-        </div>
-        <div class="zaijiaList">
-          <ul>
-            <li>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-          </ul>
+      <div class="random-show-top" v-if="IndexList.bigPromotionModule">
+        <img :src=IndexList.bigPromotionModule.floorList[0].cells[0].picUrl alt="">
+        <div class="change-category">
+          <img :src=IndexList.bigPromotionModule.floorList[0].cells[0].itemList[0].picUrl alt="">
+          <div class="yellow-price">
+            <span>${{IndexList.bigPromotionModule.floorList[0].cells[0].itemList[0].counterPrice}}</span>
+            <span v-show="IndexList.bigPromotionModule.floorList[0].cells[0].itemList[0].retailPrice">${{this.IndexList.bigPromotionModule.floorList[0].cells[0].itemList[0].retailPrice}}</span>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="random-show-bottom" v-if="IndexList.bigPromotionModule">
+        <img :src=IndexList.bigPromotionModule.floorList[1].cells[0].picUrl alt="">
+      </div>
+      <div class="random-show-list" v-if="IndexList.bigPromotionModule">
+        <img v-for="(item, index) in IndexList.bigPromotionModule.floorList[2].cells" :key="'1'+index" :src=item.picUrl alt="">
+        <img v-for="(item, index) in IndexList.bigPromotionModule.floorList[3].cells" :key="'2'+index" :src=item.picUrl alt="">
+      </div>
+      
     <!-- 新人专享 -->
     <div class="newcomersContainer">
       <div class="comersTop">
@@ -117,45 +101,14 @@
           <i class="iconfont icon-xiahuaxian"></i>
           <img :src="item.picUrl" alt />
         </div>
-        <!-- <div class="demR">
-          <span class="haoping">好评榜</span>
-          <i class="iconfont icon-xiahuaxian"></i>
-          <img src="../../common/images/swiper/8.png" alt />
-        </div> -->
+
         <div class="demandList">
           <ul v-if="IndexList.categoryHotSellModule">
             <li v-for="(item, index) in newHotSellCategoryList" :key="'5'+index">
               <span>{{item.categoryName}}</span>
               <img :src="item.picUrl" alt />
             </li>
-            <!-- <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li>
-            <li>
-              <span>美食酒水榜</span>
-              <img src="../../common/images/swiper/8.png" alt />
-            </li> -->
+ 
           </ul>
         </div>
       </div>
@@ -185,36 +138,8 @@
             <div class="price">
               <span class="y1">￥{{item.activityPrice}}</span>             
               <span class="y2">￥{{item.originPrice}}</span>
-              
             </div>
           </li>
-          <!-- <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <div class="price">
-              <span class="y1">￥</span>
-              <span class="y1">799</span>
-              <span class="y2">￥</span>
-              <span class="y2">999</span>
-            </div>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <div class="price">
-              <span class="y1">￥</span>
-              <span class="y1">799</span>
-              <span class="y2">￥</span>
-              <span class="y2">999</span>
-            </div>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <div class="price">
-              <span class="y1">￥</span>
-              <span class="y1">799</span>
-              <span class="y2">￥</span>
-              <span class="y2">999</span>
-            </div>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -236,36 +161,7 @@
             <span class="newGoodsPrice">￥{{item.counterPrice}}</span>
             <span class="newGoodsT">{{item.itemTagList[0].name}}</span>
           </li>
-          <!-- <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <span class="newGoodsText">赏味正当时，春见耙耙柑 5斤</span>
-            <span class="newGoodsPrice">￥59</span>
-            <span class="newGoodsT">特价</span>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <span class="newGoodsText">赏味正当时，春见耙耙柑 5斤</span>
-            <span class="newGoodsPrice">￥59</span>
-            <span class="newGoodsT">特价</span>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <span class="newGoodsText">赏味正当时，春见耙耙柑 5斤</span>
-            <span class="newGoodsPrice">￥59</span>
-            <span class="newGoodsT">特价</span>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <span class="newGoodsText">赏味正当时，春见耙耙柑 5斤</span>
-            <span class="newGoodsPrice">￥59</span>
-            <span class="newGoodsT">特价</span>
-          </li>
-          <li>
-            <img src="../../common/images/swiper/8.png" alt />
-            <span class="newGoodsText">赏味正当时，春见耙耙柑 5斤</span>
-            <span class="newGoodsPrice">￥59</span>
-            <span class="newGoodsT">特价</span>
-          </li> -->
+       
         </ul>
       </div>
     </div>
@@ -320,7 +216,7 @@ export default {
     // });
     // this.$store.dispatch("getNavList")
     this.$store.dispatch("getIndexLists");
-    console.log(this.IndexList)
+    
   },
   computed: {
     ...mapState({
@@ -555,58 +451,66 @@ export default {
     }
   }
 
-  .zaijiaContainer {
+.random-show-top {
+  height: 240px;
+  position: relative;
+
+  img {
     width: 100%;
-    height: 828px;
+  }
 
-    .zaijiaTop {
+  .change-category {
+    width: 168px;
+    height: 168px;
+    position: absolute;
+    left: 75px;
+    top: 30px;
+
+    img {
       width: 100%;
-      height: 240px;
+    }
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
-
-      .zaijiaBottom {
-        width: 100%;
-        background: #1674e3;
-        padding: 20px;
-        box-sizing: border-box;
-
-        .fangyi {
-          width: 710px;
-          height: 160px;
-          margin-bottom: 5px;
-
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-
-        .zaijiaList {
-          ul {
-            display: flex;
-            flex-wrap: wrap;
-
-            li {
-              margin-top: 5px;
-
-              &:nth-child(2n+1) {
-                margin-right: 10px;
-
-                img {
-                  width: 349px;
-                  height: 186px;
-                }
-              }
-            }
-          }
-        }
-      }
+    .yellow-price {
+      width: 152px;
+      height: 32px;
+      border-radius: 15px;
+      background: orange;
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      text-align: center;
+      color: white;
     }
   }
+}
+
+.random-show-bottom {
+  height: 160px;
+  background: #1377E5;
+  text-align: center;
+
+  img {
+    width: 95%;
+  }
+}
+
+.random-show-list {
+  height: 390px;
+  width: 710px;
+  background: #1377E5;
+  padding: 10px 20px;
+
+  img {
+    float: left;
+    width: 351px;
+    height: 186px;
+    margin-bottom: 10px;
+
+    &:nth-child(2n+1) {
+      margin-right: 5px;
+    }
+  }
+}
 
   .newcomersContainer {
     width: 750px;

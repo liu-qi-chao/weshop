@@ -1,15 +1,11 @@
 <template>
-  <div>
-      购物车
-  </div>
+  <div>购物车</div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
-  }
+export default {};
 </script>
 
 <style scoped lang='stylus'>
 
- 
 </style>
