@@ -43,12 +43,10 @@ import SortList from '../../components/SortList/SortList'
       this.$store.dispatch('getCateListDatas')
     },
     methods: {
-      
-      
       navIndex(index,id){
         this.content = index
         this.listId = id
-        console.log(id);
+        // console.log(id);
         
       }
     },

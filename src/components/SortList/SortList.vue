@@ -30,7 +30,7 @@
      computed: {
          srotData(){
              let {listData,result,listId} = this
-             console.log(listData);
+            //  console.log(listData);
              if (listData) {
                  result = listData.find((item) => {
                      return item.id === listId
