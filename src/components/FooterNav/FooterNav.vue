@@ -36,29 +36,26 @@ export default {
 <style  lang='stylus'>
  @import "../../common/stylus/mixins.styl"
 #footerWrap 
-  display: flex;
-  top-border-1px(#eee)
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  width 100%
+  height 98px
+  display flex
+  position fixed
+  bottom 0
+  left  0
+  justify-content space-around
+  padding 10px 0 0 0
   box-sizing border-box
-  background #fff
+  background white
   .navItem 
-    width: 20%;
-    height: 98px;
-    text-align: center;
-    // line-height 40px
-    // padding-top 10px
     display flex
     flex-direction column
-    font-size 24px
+    height 70px
     &.active
       color $red
     .iconfont
-      font-size 42px
-      line-height 60px
-
+      line-height 0px
+      font-size 45px
+      margin-top 50px
  
 
 </style>

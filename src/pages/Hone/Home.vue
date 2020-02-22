@@ -293,6 +293,7 @@ export default {
         font-size: 32px;
         position: absolute;
         left: 20px;
+        margin-top 22px
       }
 
       .content {
