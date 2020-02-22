@@ -2,7 +2,7 @@
   <div id="wrapper">
     <div class="header">
       <img src="../../common/images/logo.png" alt />
-      <div class="search">
+      <div class="search" @click="toHeaderNav">
         <i class="iconfont icon-search1"></i>
         <span class="content">搜索商品, 共20261款好物</span>
       </div>
@@ -24,7 +24,7 @@
           <img :src="item.picUrl" alt />
         </div>
       </div>
-      <div class="swiper-pagination">
+      <div class=".swiper-pagination">
         <span class="swiper-pagination-bullet"></span>
       </div>
     </div>
@@ -158,7 +158,7 @@
           <li v-for="(item, index) in newItemLists" :key="index">
             <img :src="item.listPicUrl" alt />
             <span class="newGoodsText">{{item.name}}</span>
-            <span class="newGoodsPrice">￥{{item.counterPrice}}</span>
+            <span class="newGoodsPrice">￥{{item.retailPrice}}</span>
             <span class="newGoodsT">{{item.itemTagList[0].name}}</span>
           </li>
        
@@ -210,11 +210,15 @@ export default {
       // priceIndex:0
     };
   },
+  methods: {
+    toHeaderNav(){
+      this.$router.push('/HeaderNav')
+    }
+  },
   async mounted() {
     // new BScorll(".listContainer", {
     //   scrollX: true
     // });
-    // this.$store.dispatch("getNavList")
     this.$store.dispatch("getIndexLists");
     
   },
