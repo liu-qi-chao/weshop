@@ -2,14 +2,16 @@ import {
     SAVE_INDEXLISTS,
     SAVE_SEARCHLIST,
     SAVE_NAVLIST,
-    SAVE_CATELIST
+    SAVE_CATELIST,
+    SAVE_BUYNAVLIST
 } from './mutations_types'
 
 import {
     getIndexList,
     getSearchDatas,
     getNavListDatas,
-    getCateListDatas
+    getCateListDatas,
+    getBuyNavDatas
  } from '../api'
 
 export default {
@@ -28,5 +30,9 @@ export default {
     async getCateListDatas({commit}){
         let result = await getCateListDatas()
         commit(SAVE_CATELIST,result)
+    },
+    async getBuyNavDatas({commit}){
+        let result = await getBuyNavDatas()
+        commit(SAVE_BUYNAVLIST,result)
     }
 }

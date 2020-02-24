@@ -21,3 +21,9 @@ export const getNavListDatas = () => ajax({
 export const getCateListDatas = () => ajax({
     url: '/cateLists'
 })
+
+//获取值得买导航数据
+export const getBuyNavDatas = () => ajax({
+    method: 'get',
+    url: '/buyNavDatas'
+})

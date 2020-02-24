@@ -5,7 +5,7 @@
         </div>
         <div class="cateBottom">
           <ul v-if="srotData">
-            <li v-for="(item, index) in srotData.categoryList || result.subCateList" :key="index">
+            <li v-for="(item, index) in srotData.categoryList ? srotData.categoryList : srotData.subCateList" :key="index">
               <img :src="item.wapBannerUrl" alt="">
               <span>{{item.name}}</span>
             </li>

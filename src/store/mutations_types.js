@@ -9,3 +9,6 @@ export const SAVE_NAVLIST = 'save_navList'
 
 //分类页列表
 export const SAVE_CATELIST = 'save_catelist'
+
+//值得买导航数据
+export const SAVE_BUYNAVLIST = 'save_buynavlist'

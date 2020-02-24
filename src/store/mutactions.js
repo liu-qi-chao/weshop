@@ -2,7 +2,8 @@ import {
     SAVE_INDEXLISTS, 
     SAVE_SEARCHLIST,
     SAVE_NAVLIST,
-    SAVE_CATELIST, 
+    SAVE_CATELIST,
+    SAVE_BUYNAVLIST 
 } from './mutations_types'
 
 export default {
@@ -17,6 +18,9 @@ export default {
     },
     [SAVE_CATELIST](state,data){
         state.CateListDatas = data
+    },
+    [SAVE_BUYNAVLIST](state,data){
+        state.BuyNavDatas = data
     }
 
 }
