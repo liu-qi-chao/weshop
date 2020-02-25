@@ -3,7 +3,8 @@ import {
     SAVE_SEARCHLIST,
     SAVE_NAVLIST,
     SAVE_CATELIST,
-    SAVE_BUYNAVLIST 
+    SAVE_BUYNAVLIST,
+    SAVE_BUYCONTENTLIST 
 } from './mutations_types'
 
 export default {
@@ -21,6 +22,9 @@ export default {
     },
     [SAVE_BUYNAVLIST](state,data){
         state.BuyNavDatas = data
+    },
+    [SAVE_BUYCONTENTLIST](state,data){
+        state.BuyContentList = data
     }
 
 }

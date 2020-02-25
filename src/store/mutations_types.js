@@ -12,3 +12,6 @@ export const SAVE_CATELIST = 'save_catelist'
 
 //值得买导航数据
 export const SAVE_BUYNAVLIST = 'save_buynavlist'
+
+//值得买导航数据
+export const SAVE_BUYCONTENTLIST = 'save_buycontentlist'

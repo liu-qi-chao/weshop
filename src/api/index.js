@@ -27,3 +27,9 @@ export const getBuyNavDatas = () => ajax({
     method: 'get',
     url: '/buyNavDatas'
 })
+
+
+export const getBuyContentDatas = () => ajax({
+    method: 'get',
+    url: '/buyContentList'
+})
